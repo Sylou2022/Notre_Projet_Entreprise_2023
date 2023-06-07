@@ -65,11 +65,11 @@ def main():
     st.markdown(background_css, unsafe_allow_html=True)
   
     data = load_data(2336)  
-    data = pd.read_csv('../Data/csv/Île-de-France_POLE EMPLOI.csv', sep=';')
+    data = pd.read_csv('Île-de-France_POLE EMPLOI.csv', sep=';')
 
 
     # data = load_data(2336)  
-    data = pd.read_csv('../Data/csv/Île-de-France_POLE EMPLOI.csv', nrows=2336, sep=';')
+    data = pd.read_csv('Île-de-France_POLE EMPLOI.csv', nrows=2336, sep=';')
     data['Date'] = pd.to_datetime(data['Date'])
     st.sidebar.header("Menu")
     
@@ -117,7 +117,7 @@ def main():
        
     elif selected_option == "Entrainement du modèle NLP":
         # st.title("CLASSIFICATION D'AVIS")
-        webbrowser.open('http://localhost:8504/')
+        webbrowser.open('https://sylou2022-nlp-projet-entreprise-nlpmain-p1v3s2.streamlit.app/')
         
         
         
@@ -127,7 +127,7 @@ def main():
 
 
 def load_data(nrows):
-    data = pd.read_csv('../Data/csv/Île-de-France_POLE_EMPLOI_copie.csv', nrows=nrows, sep=';')
+    data = pd.read_csv('Île-de-France_POLE_EMPLOI_copie.csv', nrows=nrows, sep=';')
     data['Date'] = pd.to_datetime(data['Date'])
     return data
 
