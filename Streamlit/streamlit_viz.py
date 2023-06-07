@@ -112,6 +112,7 @@ from menu.accueil import accueil
         
         
             
+st.set_option('browser.gatherUsageStats', False)
 
 
 
