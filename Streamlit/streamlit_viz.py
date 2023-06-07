@@ -1,19 +1,6 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import geopy.geocoders as geocoders
-from geopy.extra.rate_limiter import RateLimiter
-import geopandas as gpd
-import folium
-from geopy.geocoders import Nominatim
-import plotly.graph_objects as go
-import matplotlib.dates as mdates
-from PIL import Image
-import plotly.graph_objects as goa
 import webbrowser
-
-from io import BytesIO
 import datetime
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -25,13 +12,6 @@ from menu.etoile_periode import etoile_periode
 from menu.tab_data import tab_data
 from menu.pourcentage_etoiles import prc_etoile
 from menu.accueil import accueil
-# from menu.test import test
-
-
- 
-# from menu.api2 import api2
-# from .Nlp.api2 import api2
-
 
 # def main():
 
