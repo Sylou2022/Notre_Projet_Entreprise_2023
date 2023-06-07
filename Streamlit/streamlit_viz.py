@@ -12,7 +12,7 @@ import matplotlib.dates as mdates
 from PIL import Image
 import plotly.graph_objects as goa
 import webbrowser
-import base64
+
 from io import BytesIO
 import datetime
 import plotly.express as px
