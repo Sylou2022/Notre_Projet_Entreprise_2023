@@ -12,9 +12,9 @@ from matplotlib import pyplot as plt
 def load_data(nrows):
     fichier2 = st.file_uploader('telecharger votre fichier ici', type='csv', key='n2')
     if fichier2 is not None: 
-        data = pd.read_csv(fichier2, sep=';')
-        data['Date'] = pd.to_datetime(data['Date'])
-        return data
+        data2 = pd.read_csv(fichier2, sep=';')
+        data2['Date'] = pd.to_datetime(data2['Date'])
+        return data2
 
 def main():
     st.set_page_config(page_title="Projet-Entreprise", page_icon="🧊")
@@ -81,7 +81,45 @@ def main():
             st.markdown("Ce graphique montre le nombre total d'avis positifs par ville et par année. Il nous permet de voir les villes et les années avec le plus grand nombre d'avis positifs.", unsafe_allow_html=True)
 
             fig2 = px.bar(data, x="Ville", y="Nombre d'avis positifs", color="Année", barmode="group")
+            # st.plotly_chart(fig2)
+            
+                # Charger les données depuis le fichier CSV
+            # data = pd.read_csv('../Data/csv/avi.csv', sep=';')
+
+            # Extraire l'année à partir de la colonne "Date de publication"
+            data['Year'] = pd.to_datetime(data['Date de publication'], format='%d/%m/%Y').dt.strftime('%Y')
+
+            # Récupérer toutes les années du CSV
+            annees = data['Year'].unique()
+
+            st.markdown("<h6 >Visualisation de l'évolution des avis positifs au fil des années et comparaison des différentes villes. L’analyse sur la satisfaction des utilisateurs dans chaque ville.Les variations temporelles et géographiques des avis positifs.</h6>", unsafe_allow_html=True)
+            # Sélection de la ville via le dropdown
+            selected_ville = st.selectbox('Sélectionnez une ville', data['Ville'].unique())
+
+            # Filtrer les données pour la ville sélectionnée
+            positifs_par_ville = data[data['Ville'] == selected_ville]
+            positifs_par_ville = positifs_par_ville[positifs_par_ville['Type'] == 'Positif'].groupby(['Year']).size().reset_index(name='Count')
+
+            # Créer le graphique en courbe
+            fig = px.line(positifs_par_ville, x='Year', y='Count')
+            
+
+            # Mise en forme du layout du graphique
+            fig.update_layout(title=f'Représentation du nombre d\'avis positifs par année pour la ville : {selected_ville}',
+                            
+                            
+                            yaxis_title='Nombre d\'avis positifs')
+            fig.update_xaxes(title_text='Année',dtick=1)
+            
+            fig.update_yaxes(title_text='Nombre d\'avis positifs',dtick=1)
+
+            # Afficher le graphique en courbe
             st.plotly_chart(fig2)
+            
+            
+            
+            
+            
 
         elif selected_option == "Qualité de services par Ville":
             st.markdown("<h2 style='color: #000000;'>Qualité de services par Ville</h2>", unsafe_allow_html=True)
