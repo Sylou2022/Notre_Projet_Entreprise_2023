@@ -113,9 +113,10 @@ def main():
         elif selected_option == "Entrainement du modèle NLP":
             st.markdown("<h2 style='color: #000000;'>Entrainement du modèle NLP</h2>", unsafe_allow_html=True)
             st.markdown("Section réservée à l'entraînement du modèle de traitement du langage naturel (NLP).", unsafe_allow_html=True)
+            webbrowser.open('https://sylou2022-nlp-projet-entreprise-nlpmain-p1v3s2.streamlit.app/')
         
-        st.sidebar.markdown("<h3 style='color: #000000;'>Informations</h3>", unsafe_allow_html=True)
-        st.sidebar.markdown("<p style='color: #000000;'>Application développée par <b>XYZ</b></p>", unsafe_allow_html=True)
+        # st.sidebar.markdown("<h3 style='color: #000000;'>Informations</h3>", unsafe_allow_html=True)
+        # st.sidebar.markdown("<p style='color: #000000;'>Application développée par <b>XYZ</b></p>", unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
