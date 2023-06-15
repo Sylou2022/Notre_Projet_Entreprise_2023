@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 from matplotlib import pyplot as plt
 
 # st.set_option('browser.gatherUsageStats', False)
-st.markdown("<h2 style='color: #000000;'>Télécharger le fichier csv'Ile de France pole emploi'</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='color: #000000;'>Télécharger le fichier csv Ile de France pole emploi </h2>", unsafe_allow_html=True)
 
 def load_data(nrows):
     fichier2 = st.file_uploader('telecharger votre fichier ici', type='csv', key='n2')
@@ -18,7 +18,7 @@ def load_data(nrows):
         return data
 
 def main():
-    st.set_page_config(page_title="Projet-Entreprise", page_icon="🧊")
+    # st.set_page_config(page_title="Projet-Entreprise", page_icon="🧊")
 
     background_css = """
         <style>
